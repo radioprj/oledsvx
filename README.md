@@ -1,4 +1,4 @@
-**Wykorzystanie wyświetlaczy OLED s SVXLink**
+**Wykorzystanie wyświetlaczy OLED z SVXLink**
 
 Nowa wersja kodu w Python3 napisana przez Arka SP2AM
 
