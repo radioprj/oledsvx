@@ -1,0 +1,18 @@
+[Unit]
+Description=OLED display SVXLink info
+After=multi-user.target network.target network-online.target svxlink.service
+Wants=network.target network-online.target
+StartLimitInterval=200
+StartLimitBurst=100
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /opt/fmpoland/oledsvx/oledsvx.py
+WorkingDirectory=/opt/fmpoland/oledsvx
+User=root
+#CPUQuota=50%
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
