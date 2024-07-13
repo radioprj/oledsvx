@@ -6,6 +6,7 @@ Nowa wersja kodu w Python3 napisana przez Arka SP2AM
 ---------------------
 
 cd /opt
+
 jeśli nie masz katalogu "fmpoland" utwórz go poleceniem
 
 mkdir fmpoland
