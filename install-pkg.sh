@@ -11,11 +11,14 @@ if [ $dis == "Raspbian" ] || [ $dis == "Debian" ]; then
     echo "Instalacja pakietów dla OLED na bazie Debian 11"
     echo ""
     sudo apt-get update
-    sudo apt install -y python3 python3-pip python3-smbus python3-dev i2c-tools python3-numpy python3-watchdog libgpiod-dev python3-libgpiod libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libopenjp2-7 
+    sudo apt install -y python3 python3-pip python3-smbus python3-dev i2c-tools python3-numpy python3-watchdog 
+    sudo apt install -y libgpiod-dev python3-libgpiod libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libopenjp2-7 
     sudo python3 -m pip install --upgrade setuptools
     sudo python3 -m pip install --upgrade luma.oled
     sudo python3 -m pip install Pillow==10.3.0
     sudo python3 -m pip install psutil
+    echo ""
+    echo "Kopiowanie oledsvx.service do /lib/systemd/system/"
     sudo cp /opt/fmpoland/oledsvx/oledsvx.service /lib/systemd/system/
     echo ""
     echo "Instalacja zakonczona ...."
@@ -27,12 +30,15 @@ if [ $dis == "Raspbian" ] || [ $dis == "Debian" ]; then
     echo "Instalacja pakietów dla OLED na bazie Debian 12"
     echo ""
     sudo apt-get update
-    sudo apt install -y python3 python3-pip python3-smbus python3-smbus2 python3-dev i2c-tools python3-numpy python3-watchdog libgpiod-dev python3-lib
+    sudo apt install -y python3 python3-pip python3-smbus python3-smbus2 python3-dev i2c-tools python3-numpy python3-watchdog 
+    sudo apt install -y python3-libgpiod libgpiod-dev libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libopenjp2-7
     sudo gpiod libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libopenjp2-7 
     sudo python3 -m pip install --upgrade setuptools --break-system-packages
     sudo python3 -m pip install --upgrade luma.oled --break-system-packages
     sudo python3 -m pip install Pillow==10.3.0 --break-system-packages
     sudo python3 -m pip install psutil --break-system-packages
+    echo ""
+    echo "Kopiowanie oledsvx.service do /lib/systemd/system/"
     sudo cp /opt/fmpoland/oledsvx/oledsvx.service /lib/systemd/system/
     echo ""
     echo "Instalacja zakonczona ...."
