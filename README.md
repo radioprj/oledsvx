@@ -8,6 +8,8 @@ Nowa wersja kodu w Python3 napisana przez Arka SP2AM
 **Instalacja pakietu**
 ---------------------
 
+sudo -s
+
 cd /opt
 
 jeśli nie masz katalogu "fmpoland" utwórz go poleceniem
