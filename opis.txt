@@ -83,7 +83,7 @@ sprzętowy detekcji OLED na szynie I2C zanim przejdziesz do dalszej
 części konfiguracji korzystania z OLED
 
 Jeśli masz wynik podobny do poniższego oznacza on
-problem sprzętowy podłączonego LCD:
+problem sprzętowy podłączonego OLED:
 
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -124,8 +124,11 @@ i2c_port=1
 i2c_address=0x3C
 
 
-oraz opcje ustawień kontrastu,  jeśli ma się czujnik DS18B20
-ustaw opcje TRUE dla ext_temp_sensor=
+oraz opcje ustawień kontrastu,  
+
+jeśli ma się czujnik DS18B20 ustaw opcje TRUE dla 
+
+ext_temp_sensor=
 
 Instalacja pakietów:
 -------------------
@@ -136,11 +139,14 @@ sudo /opt/fmpoland/oledsvx/install-pkg.sh
 
 ----------------------
 
-Ustawienie znajdziesz w pliku oledsvx.ini
------------------------------------------
+Uruchomienie obsługi OLED podczas startu systemu
+-----------------------------------------------
 
-systemctl enable oledsvx.service
-systemctl start oledsvx.service
+sudo systemctl enable oledsvx.service
+
+ręczne uruchomienie:
+
+sudo systemctl start oledsvx.service
 
 
 Na wyświetlaczu w pierwszej linii
