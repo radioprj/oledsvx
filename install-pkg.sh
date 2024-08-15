@@ -13,10 +13,10 @@ if [ $dis == "Raspbian" ] || [ $dis == "Debian" ]; then
     sudo apt-get update
     sudo apt install -y python3 python3-pip python3-smbus python3-dev i2c-tools python3-numpy python3-watchdog 
     sudo apt install -y libgpiod-dev python3-libgpiod libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libopenjp2-7 
-    sudo python3 -m pip install --upgrade setuptools --root-user-action=ignore
-    sudo python3 -m pip install --upgrade luma.oled --root-user-action=ignore
-    sudo python3 -m pip install Pillow==10.3.0 --root-user-action=ignore
-    sudo python3 -m pip install psutil --root-user-action=ignore
+    sudo python3 -m pip install --upgrade setuptools 
+    sudo python3 -m pip install --upgrade luma.oled 
+    sudo python3 -m pip install Pillow==10.3.0 
+    sudo python3 -m pip install psutil 
     echo ""
     echo "Kopiowanie oledsvx.service do /lib/systemd/system/"
     sudo cp /opt/fmpoland/oledsvx/oledsvx.service /lib/systemd/system/
