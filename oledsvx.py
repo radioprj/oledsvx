@@ -296,8 +296,9 @@ class Screen:
             return "AUTO QSY"
         self.__update_tgnames()
         if str(tg) in self.tg_names:
-            # limit to 12 characters
-            return self.tg_names[str(tg)][:13]
+            tgn = re.sub(r'[^a-zA-Z0-9ążźśćęńłóĄŻŹŚĆĘŃŁÓ:,\-\s]',"",self.tg_names[str(tg)])
+            # limit characters
+            return str(tgn)[:18]
         return "Nieznana"
 
     def save_screen(self):
@@ -398,9 +399,12 @@ class Screen:
 
     def __update_tg(self):
         if self.current_call.state == 'start' or self.show_last:
-            msg = f"TG:{self.current_tg}"
+             msg = f"TG: {self.current_tg}"
         else:
-            msg = f"TG:{self.current_tg} - {self.get_tgname(self.current_tg)}"
+            if self.current_tg == 0:
+              msg = f"{self.get_tgname(self.current_tg)}"
+            else:
+              msg = f"Aktywna TG: {self.current_tg}"
         w = self.draw.textlength(msg, font=self.font11)
         self.draw.text(((self.oled_width-w)/2, 16), msg, font=self.font11, fill=255)
 
