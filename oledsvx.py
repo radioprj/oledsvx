@@ -6,6 +6,7 @@
 
 # options in oledsvx.ini
 
+import subprocess
 import argparse
 import configparser
 import glob
@@ -511,34 +512,18 @@ class Screen:
             self.draw.bitmap((68, 0), self.temp_icon, fill="white")
             msgt = __get_temp() + "°C"
             self.draw.text((88, 0), msgt, font=self.font14, fill=255)
-
+            
     def svxlink_alive(self):
         def __is_svxlink_alive():
-            binary_file = '/usr/bin/svxlink'
-            pid_file = "/run/svxlink.pid"
-            if not os.path.exists(pid_file):
-                logger.debug("__is_svxlink_alive: no pid file: {pid_file}")
+            """Check if the svxlink process is running using the subprocess module."""
+            try:
+                # Run the `pgrep` command to search for processes named "svxlink"
+                result = subprocess.run(['pgrep', 'svxlink'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                # If pgrep finds the process, it will return a non-empty result in stdout
+                return result.returncode == 0
+            except Exception as e:
+                logger.debug(f"An error occurred: {e}")
                 return False
-
-            with open(pid_file, 'r', encoding='utf-8') as file:
-                pid = file.read().strip()
-
-            proc_path = f"/proc/{pid}"
-            if not os.path.exists(proc_path):
-                logger.debug(f"__is_svxlink_alive: no {proc_path}")
-                return False
-
-            exe_path = os.path.join(proc_path, "exe")
-            if not os.path.exists(exe_path):
-                logger.debug(f"__is_svxlink_alive: no {exe_path}")
-                return False
-
-            real_path = os.path.realpath(exe_path)
-            if real_path.find("svxlink") < 0:
-                logger.debug(f"__is_svxlink_alive: {pid} exe path {real_path} probably isn't vxlink process")
-                return False
-
-            return True
         if not __is_svxlink_alive():
             self.reflector_disconnected()
 
