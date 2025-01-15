@@ -31,7 +31,7 @@ Uruchom konfiguracje komputera poleceniem
 
 sudo armbin-config
 
-Wybierz z menu SYSTEM -> HARDWARE
+Wybierz z menu SYSTEM -> Manage device tree overlays
 
 Zaznacz klawiszem spacją urządzenie I2C
 
