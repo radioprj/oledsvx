@@ -27,18 +27,19 @@ i zapisać zmiany i zrób następnie reboot komputera
 
 Dla Orange PI Zero V1 i V3
 ----------------------------------------------------
-Uruchom konfiguracje komputera poleceniem
+Wpisz w pliku /boot/armbianEnv.txt w lini overlays= 
 
-sudo armbin-config
+dla OZIP v3:  i2c3-ph
+---------------------
+czyli:
+overlays=uart1 uart2 usbhost2 usbhost3 i2c3-ph
 
-Wybierz z menu SYSTEM -> Manage device tree overlays
+dla OZPI V1:  i2c0
+----------------
+czyli:
+overlays=analog-codec uart1 uart2 usbhost2 usbhost3 i2c0
 
-Zaznacz klawiszem spacją urządzenie I2C
-
-Dla OZPI V3: [*] i2c3-ph
-Dla OZPI V1: [*] i2c0
-
-Wyjdź z konfiguracji i zrób reboot komputera
+zapisz zmiany i zrób reboot komputera
 ----------------------------------------------------
 
 
