@@ -27,12 +27,12 @@ i zapisać zmiany i zrób następnie reboot komputera
 
 Dla Orange PI Zero V1 i V3
 ----------------------------------------------------
-Wpisz w pliku /boot/armbianEnv.txt w lini overlays= 
+Wpisz w pliku /boot/armbianEnv.txt w linii overlays= 
 
 dla OZIP v3:  i2c3-ph
 ---------------------
 czyli:
-overlays=uart1 uart2 usbhost2 usbhost3 i2c3-ph
+overlays=uart5-ph i2c3-ph
 
 dla OZPI V1:  i2c0
 ----------------
