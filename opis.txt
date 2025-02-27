@@ -136,7 +136,8 @@ Instalacja pakietów:
 
 Uruchom polecenie aby zainstalować biblioteki:
 
-sudo /opt/fmpoland/oledsvx/install-pkg.sh
+sudo -s
+/opt/fmpoland/oledsvx/install-pkg.sh
 
 ----------------------
 
