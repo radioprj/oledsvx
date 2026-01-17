@@ -5,8 +5,10 @@ podłączone via I2C do Raspberry PI (RaspbianOS), Orange Pi Zero (ArmBian)
 
 Nowa wersja kodu w Python3 napisana przez Arka SP2AM
 
-**Instalacja pakietu**
----------------------
+**Instalacja pakietu dla systemów na bazie Debian 12**
+-----------------------------------------------------
+UWAGA gotowe obrazy mają już zainstalowany ten pakiet
+więc nie ma potrzeby instalacji tylko nalezy skonfigurować.
 
 sudo -s
 
@@ -22,6 +24,8 @@ git clone https://github.com/radioprj/oledsvx.git
 
 cd oledsvx/
 
+**KONFIGURACJA**
+-------------
 Czytaj plik **[opis.txt](https://raw.githubusercontent.com/radioprj/oledsvx/refs/heads/main/opis.txt)** gdzie znajdziesz informacje o konfiguracji OLED
 do współpracy z SVXLink
 
