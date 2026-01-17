@@ -22,7 +22,7 @@ git clone https://github.com/radioprj/oledsvx.git
 
 cd oledsvx/
 
-Czytaj plik **opis.txt** gdzie znajdziesz informacje o konfiguracji OLED
+Czytaj plik **[opis.txt](https://raw.githubusercontent.com/radioprj/oledsvx/refs/heads/main/opis.txt)** gdzie znajdziesz informacje o konfiguracji OLED
 do współpracy z SVXLink
 
 
