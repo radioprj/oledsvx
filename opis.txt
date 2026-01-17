@@ -4,43 +4,11 @@
        lub 1.3 cala SH1106  typu I2C
 ===============================================
 
-
-Aktywuj złącze I2C na komputerze:
-
-Dla RPI
-----------------------------------------------------
-Uruchom konfiguracje poleceniem:
-
-sudo raspi-config
-
-Wybierz "Interface Options" -> "I2C"
-
-na pytanie:
-
-"Would you like the ARM I2C interface to be enabled?"
-
-Wybrać "YES"
-
-i zapisać zmiany i zrób następnie reboot komputera
-----------------------------------------------------
-
-
-Dla Orange PI Zero V1 i V3
-----------------------------------------------------
-Wpisz w pliku /boot/armbianEnv.txt w linii overlays= 
-
-dla OZIP v3:  i2c3-ph
----------------------
-czyli:
-overlays=uart5-ph i2c3-ph
-
-dla OZPI V1:  i2c0
-----------------
-czyli:
-overlays=analog-codec uart1 uart2 usbhost2 usbhost3 i2c0
-
-zapisz zmiany i zrób reboot komputera
-----------------------------------------------------
+UWAGA w przypadków hotspotów na bazie obrazów 
+gotowych dla fm poland nie ma potrzeby wykonywania
+operacji konfiguracji i2c w systemie i instlacji pakietów 
+gdyż jest to już zrobione. Jedynie co nalezy podłaczyć
+OLED zgodnie z opisem.
 
 
 Podłącz OLED do na złączu komputera
@@ -53,10 +21,6 @@ SCL  - PIN 5
 
 Sprawdź numery wyprowadzeń na danej wersji komputera
 w opisach złącza aby poprawnie podłączyć
-
-Zainstaluj pakiet do obsługi I2C:
-
-sudo apt-get -y install i2c-tools
 
 Sprawdź czy widać Twój OLED na wykazie szyny I2C poleceniem
 na wwybranym porcie
@@ -131,18 +95,9 @@ jeśli ma się czujnik DS18B20 ustaw opcje TRUE dla
 
 ext_temp_sensor=
 
-Instalacja pakietów:
--------------------
-
-Uruchom polecenie aby zainstalować biblioteki:
-
-sudo -s
-/opt/fmpoland/oledsvx/install-pkg.sh
-
-----------------------
 
 Uruchomienie obsługi OLED podczas startu systemu
------------------------------------------------
+-------------------------------------------------
 
 sudo systemctl enable oledsvx.service
 
@@ -169,6 +124,57 @@ nazwę TG
 
 Kiedy brak aktywności pokazany jest bieżący czas oraz
 dodatkowo ikonka "anteny" kiedy jest połączenia z reflektorem
+
+
+
+Poniższe operacje na gotowych obrazach hotspotów sa już
+zrobione.
+Aktywuj złącze I2C na komputerze:
+=================================
+Dla RPI
+----------------------------------------------------
+Uruchom konfiguracje poleceniem:
+
+sudo raspi-config
+
+Wybierz "Interface Options" -> "I2C"
+
+na pytanie:
+
+"Would you like the ARM I2C interface to be enabled?"
+
+Wybrać "YES"
+
+i zapisać zmiany i zrób następnie reboot komputera
+----------------------------------------------------
+
+
+Dla Orange PI Zero V1 i V3
+----------------------------------------------------
+Wpisz w pliku /boot/armbianEnv.txt w linii overlays= 
+
+dla OZIP v3:  i2c3-ph
+---------------------
+czyli:
+overlays=uart5 i2c3-ph
+
+dla OZPI V1:  i2c0
+----------------
+czyli:
+overlays=analog-codec uart1 uart2 usbhost2 usbhost3 i2c0
+
+zapisz zmiany i zrób reboot komputera
+----------------------------------------------------
+
+Instalacja pakietów dla systemów nie na bazie gotowych obrazów
+--------------------------------------------------------------
+Na obrazach dostępnych FM POLAND w tym projekcie nie ma potrzeby 
+instlacji pakietów gdyż są one już zainstalowane
+
+Uruchom polecenie aby zainstalować biblioteki:
+
+sudo -s
+/opt/fmpoland/oledsvx/install-pkg.sh
 
 ---------------------------------------------------------------
 
