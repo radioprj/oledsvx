@@ -6,7 +6,7 @@ StartLimitInterval=200
 StartLimitBurst=100
 
 [Service]
-Type=idle
+Type=simple
 ExecStart=/usr/bin/python3 /opt/fmpoland/oledsvx/oledsvx.py
 WorkingDirectory=/opt/fmpoland/oledsvx
 User=root
